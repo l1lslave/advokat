@@ -1,0 +1,182 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-image: url(fon.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  color: #FFF;
+}
+
+.header {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 300;
+  color: gray;
+}
+
+.contact-container {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  color: #FFF;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.contact-link {
+  font-size: 24px;
+  color: #FFF;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-link:hover {
+  color: #4facfe;
+}
+.header .logo {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.header .logo:hover {
+  color: rgba(255, 255, 255, 0.5); /* Легкое изменение цвета при наведении */
+}
+.contact-info {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .contact-info h2 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  
+  .contact-info p {
+    color: #fff;
+    font-size: 18px;
+  }
+  .address-link {
+    color: #81cdf0; 
+    text-decoration: underline; 
+    transition: color 0.3s; 
+  }
+  
+  .address-link:hover {
+    color: #00f2fe; 
+  }
+  .contact-form {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.contact-form h2 {
+    color: #FFF;
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFF;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.contact-form button {
+    padding: 10px;
+    background: #4facfe;
+    border: none;
+    border-radius: 5px;
+    color: #FFF;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.contact-form button:hover {
+    background: #00f2fe;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #FFF; /* Установите цвет текста плейсхолдера на белый */
+    opacity: 0.8; /* Вы можете отрегулировать непрозрачность, чтобы сделать его менее прозрачным */
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #FFF; /* Цвет текста ввода */
+}
+.response-message {
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+.success {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: #4CAF50;
+  border: 1px solid #4CAF50;
+}
+
+.error {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: #F44336;
+  border: 1px solid #F44336;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Контакти</title>
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="style-contacts.css">
+  <link rel="icon" type="image/png" href="ico.png">
+</head>
+
+<body>
+
+
+  <header class="header">
+    <a href="index.html" class="logo">Повернутись на головну</a>
+  </header>
+  
+  <div class="contact-container">
+    <h1>Контактна інформація</h1>
+    <div class="contact-links">
+      <a class="contact-link" href="tel:+380970161216"><i class='bx bx-phone'></i> Телефон</a>
+      <a class="contact-link" href="https://t.me/+380970161216" target="_blank"><i class='bx bxl-telegram'></i> Telegram</a>
+      <a class="contact-link" href="mailto:nvi_1983@ukr.net"><i class='bx bxs-envelope'></i> Email</a>
+      <div class="contact-info">
+        <h2>Наша адреса</h2>
+        <p>
+          <a href="https://www.google.com/maps/dir//50.4555019,30.4904749/" target="_blank" class="address-link">
+            04053, Київ, м. Київ, р-н Шевченківський, вул. Тургенєвська, буд. 76-78, оф. 47
+          </a>
+        </p>
+      </div>
+      <div class="contact-form">
+        <h2>Форма зворотного зв'язку</h2>
+        <input type="text" placeholder="Ваше ім'я" required id="name">
+        <input type="tel" placeholder="Ваш номер телефону" required id="phone">
+        <textarea placeholder="Ваше повідомлення" rows="4" required id="message"></textarea>
+        <button type="button" onclick="sendMessage()">Відправити</button>
+        <div class="response-message success" id="successMessage" style="display: none;">Повідомлення успішно надіслано!</div>
+        <div class="response-message error" id="errorMessage" style="display: none;">Не вдалося надіслати повідомлення.</div>
+    </div>
+    
+    </div>
+  </div>
+  <script>
+    function sendMessage() {
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const message = document.getElementById("message").value;
+
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.getElementById("errorMessage");
+
+   
+    successMessage.style.display = 'none';
+    errorMessage.style.display = 'none';
+
+    
+    const telegramApiUrl = `https://api.telegram.org/bot8092742349:AAEjbjldhucbpwderaL11SQy-1khygWUQtY/sendMessage`;
+
+    const payload = {
+        chat_id: "-4507384085",
+        text: `Ім'я: ${name}\nНомер телефону: ${phone}\nПовідомлення: ${message}`
+    };
+
+    fetch(telegramApiUrl, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.ok) {
+            successMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'block';
+        }
+    })
+    .catch(error => {
+        console.error("Помилка:", error);
+        errorMessage.style.display = 'block';
+    });
+}
+
+  </script>
+</body>
+
+</html>
